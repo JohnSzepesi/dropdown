@@ -1,0 +1,130 @@
+nav {
+    display: block;
+    text-align: center;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nav a {
+    display: block;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.8em 1.8em;
+    text-transform: uppercase;
+    font-size: 80%;
+    letter-spacing: 2px;
+    text-shadow: 0 -1px 0 #000;
+    position: relative;
+}
+.nav {
+    vertical-align: top;
+    display: inline-block;
+    box-shadow: 1px -1px -1px 1px #000, -1px 1px -1px 1px #fff, 0 0 6px 3px #fff;
+    border-radius: 6px;
+}
+.nav li {
+    position: relative;
+}
+.nav > li {
+    float: left;
+    /*az alsó vonal színe a menü alatt*/
+    border-bottom: 4px #aaa solid;
+    /*a menüdobozok távolsága egymás mellett*/
+    margin-right: 1px;
+}
+.nav > li > a {
+    /*az alsó vonal távolsága a menü alatt*/
+    margin-bottom: 1px;
+    /*a menü doboz felső árnyalata*/
+    box-shadow: inset 0 2em 0.33em -0.5em #555;
+}
+.nav > li:hover,
+.nav > li:hover > a {
+    /*az aktív menü vonalának színe*/
+    border-bottom-color: orange;
+}
+.nav li:hover > a {
+    /*a menü neve ilyen színű lesz hover esetén*/
+    color: orange;
+}
+.nav > li:first-child {
+    /*a menü első elemének alsó vonalának radiusa*/
+    border-radius: 4px 0 0 4px;
+}
+.nav > li:first-child > a {
+    /*a menü első elemének radiusa*/
+    border-radius: 4px 0 0 0;
+}
+.nav > li:last-child {
+    /*a menü utolsó elemének alsó vonalának radiusa*/
+    border-radius: 0 0 4px 0;
+    margin-right: 0;
+}
+.nav > li:last-child > a {
+    /*a menü utolsó elemének radiusa*/
+    border-radius: 0 4px 0 0;
+}
+.nav li li a {
+    /*a menü lenyíló elemeinek távolsága egymás felett*/
+    margin-top: 1px;
+}
+
+.nav li a:first-child:nth-last-child(2):before {
+    /*a nyilak helyzete mikor rávisszük az egeret*/
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border: 5px solid transparent;
+    top: 50%;
+    right: 5px;
+}
+
+.nav ul {
+    position: absolute;
+    /*a leghosszabb elemhez igazítja a lenyílást*/
+    white-space: nowrap;
+    /*a lenyíló menük alsó vonala*/
+    border-bottom: 5px solid orange;
+    z-index: 1;
+    left: -99999em;
+}
+.nav > li:hover > ul {
+    /*a lenyíló menü ennyivel kezdődik balról a menühöz képest*/
+    left: auto;
+    /*a menü aljától ennyivel lejjebb kezd lenyílni*/
+    margin-top: 5px;
+    min-width: 100%;
+}
+.nav > li li:hover > ul {
+    /*a lenyíló kinyílóit célozza meg*/
+    /*így a lenyíló jbb szélétől kezdődik a kinyíló*/
+    left: 100%;
+    margin-left: 1px;
+    top: -1px;
+}
+/* arrow hover styling */
+.nav > li > a:first-child:nth-last-child(2):before {
+    /*a felső menü nyilainak a színe alapállapot*/
+    border-top-color: #aaa;
+}
+.nav > li:hover > a:first-child:nth-last-child(2):before {
+    /*a felső menü nyilai hover esetén felfelé mutatás*/
+    border: 5px solid transparent;
+    border-bottom-color: orange;
+    margin-top: -5px;
+}
+.nav li li > a:first-child:nth-last-child(2):before {
+    /*a lenyíló menü nyilainak alapállata*/
+    border-left-color: #aaa;
+    margin-top: -5px;
+}
+.nav li li:hover > a:first-child:nth-last-child(2):before {
+    /*a lenyíló elem visszanyilának állapotai*/
+    border: 5px solid transparent;
+    border-right-color: orange;
+    right: 10px;
+}
